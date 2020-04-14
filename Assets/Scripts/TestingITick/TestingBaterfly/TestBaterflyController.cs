@@ -1,9 +1,44 @@
-﻿using BaseScripts;
-using UnityEngine;
+﻿using UnityEngine;
+
+namespace BeastHunter
+{ 
+    public sealed class TestBaterflyController : IAwake, IUpdate
+    {
+    #region Fields
+
+    private  readonly GameContext _context;
+
+    #endregion
 
 
-class TestBaterflyController : BaseController
-{
+    #region ClassLifeCycle
 
+    public TestBaterflyController(GameContext context, Services services)
+    {
+        _context = context;
+    }
+
+    #endregion
+
+
+    #region Updating
+
+    public void Updating()
+    {
+        _context._sphereModel.Initilize();
+    }
+
+    #endregion
+
+
+    #region OnAwake
+
+    public void OnAwake()
+    {
+
+    }
+
+    #endregion
+    }
 }
 
