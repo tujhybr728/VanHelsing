@@ -25,7 +25,7 @@ namespace BeastHunter
 
     public void Updating()
     {
-        _context._sphereModel.Initilize();
+        _context._testBaterflyModel.Initilize();
     }
 
     #endregion

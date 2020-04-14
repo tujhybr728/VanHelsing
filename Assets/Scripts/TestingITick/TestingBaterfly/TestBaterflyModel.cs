@@ -1,30 +1,40 @@
 ﻿using UnityEngine;
 
 
-    class TestBaterflyModel
+    public sealed class TestBaterflyModel
     {
+
 
     #region Property
 
-    public GameObject BaterflyTarget;
-
-    public BoxCollider BaterflyBox;
-
-    public Transform BaterflyTransform;
-
-    public float BaterflySpeed;
+    public SphereCollider BaterflyCollider { get; }
+    public Transform BaterflyTransform { get; }
+    public TestBaterflyData BaterflyData;
+    public TestBaterflyStruct BaterflyStruct;
 
     #endregion
 
 
     #region ClassLifeCycle
 
-    public TestBaterflyModel(GameObject prefab, CubeScriptableObj baterflydata)
+    public TestBaterflyModel(GameObject prefab, TestBaterflyData baterflydata)
     {
-        BaterflySpeed = baterflydata.speed;
+        BaterflyData = baterflydata;
+        BaterflyStruct = baterflydata.TestBaterflyStruct;
         BaterflyTransform = prefab.transform;
-        BaterflyTarget = baterflydata.Target;
-        BaterflyBox = prefab.gameObject.GetComponent<BoxCollider>();
+        BaterflyCollider = prefab.gameObject.GetComponent<SphereCollider>();
+    }
+
+    #endregion
+
+
+
+    #region Metods
+
+    public void Initilize()
+    {
+        BaterflyData.ChangeTestBaterflyCollider(BaterflyCollider, BaterflyStruct.SphereRadius);
+        BaterflyData.Move(BaterflyTransform, BaterflyStruct.Target, BaterflyStruct.MoveSpeed);
     }
 
     #endregion

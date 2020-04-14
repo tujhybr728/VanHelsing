@@ -11,6 +11,8 @@ namespace BeastHunter
 
         public static SphereData _sphereData;
 
+        public static TestBaterflyData _testBaterflyData;
+
         #endregion
 
 
@@ -27,6 +29,19 @@ namespace BeastHunter
                 return _sphereData;
             }
         }
+
+        public static TestBaterflyData TestBaterflyData
+        {
+            get
+            {
+                if (_testBaterflyData == null)
+                {
+                    _testBaterflyData = Resources.Load<TestBaterflyData>("Data/TestBaterflyData");
+                }
+                return _testBaterflyData;
+            }
+        }
+
 
         #endregion
     }

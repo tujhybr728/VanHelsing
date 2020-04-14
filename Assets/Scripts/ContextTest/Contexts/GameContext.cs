@@ -10,7 +10,7 @@ namespace BeastHunter
         #region Fields
 
         public SphereModel _sphereModel;
-        public TestBaterflyData _testBaterflyData;
+        public TestBaterflyModel _testBaterflyModel;
 
         public event Action<IInteractable> AddObjectHandler = delegate (IInteractable interactable) { };
         private readonly SortedList<InteractableObjectType, List<IInteractable>> _onTriggers;
